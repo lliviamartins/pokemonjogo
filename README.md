@@ -1,60 +1,149 @@
-Jogo Pokémon --- Projeto AV1 de POO
+# Projeto desenvolvido em Java para a disciplina de Programação Orientada a Objetos (POO).
 
-Sobre o projeto
+## Integrantes:
+- Kathleen Martins Teixeira
+- Lívia Pereira Martins dos Santos
+- Luca Conti Turchet
 
-Este projeto foi desenvolvido para a disciplina de Programação
-Orientada a Objetos (POO) da UniAnchieta.
 
-A ideia foi criar uma versão simples, feita em Java, inspirada na
-dinâmica dos jogos Pokémon. O jogador pode começar com um Pokémon,
-capturar outros, consultar sua Pokédex e participar de batalhas.
+## Sobre o projeto
 
-O principal objetivo do projeto não foi criar um jogo completo, mas
-colocar em prática os conceitos de Java e POO estudados durante as
-aulas.
+O Pokémon Adventure é um sistema desenvolvido para aplicar conceitos de
+Programação Orientada a Objetos utilizando Pokémon, treinadores e batalhas.
 
-Objetivo
+O programa permite visualizar os Pokémon do treinador, escolher um Pokémon
+para batalhar e enfrentar um Pokémon adversário sorteado aleatoriamente.
 
-O jogo simula, de forma simplificada, algumas ações de um treinador
-Pokémon:
+## Requisitos técnicos aplicados
 
-escolher e visualizar seus Pokémon;
+O projeto atende aos principais requisitos técnicos trabalhados durante a disciplina:
 
-tentar capturar novos Pokémon;
+- Classes: o projeto possui mais de 5 classes próprias além da classe App.
+- Herança: as subclasses utilizam extends e seus construtores utilizam super(...).
+- Encapsulamento: os atributos das classes são protegidos por modificadores de acesso e possuem getters e setters, com validações aplicadas aos valores.
+- protected: é utilizado na superclasse quando é necessário permitir o acesso pelas subclasses. A justificativa dessa utilização está apresentada no relatório individual.
+- Polimorfismo: as subclasses sobrescrevem o método atacar() utilizando @Override. Os Pokémon são armazenados em uma ArrayList<Pokemon> e podem ser percorridos utilizando for-each.
+- Sobrecarga: a classe Batalha possui métodos com o mesmo nome e diferentes assinaturas para realizar cálculos de dano.
+- instanceof e downcasting: utilizados na classe Batalha para verificar o tipo específico de um Pokémon e permitir o acesso a comportamentos específicos de suas subclasses.
+- Tipos de dados: são utilizados tipos primitivos e String de acordo com as necessidades do sistema.
+- Menu: o programa possui um menu interativo no console utilizando Scanner.
+- Validação de entrada: o sistema verifica se a entrada do usuário é válida antes de continuar determinadas operações.
+- Execução: o projeto pode ser executado pela classe App em uma IDE compatível com Java.
+- Nomenclatura: as classes, métodos e variáveis seguem as convenções de nomenclatura utilizadas em Java.
 
-consultar a Pokédex;
+## Funcionalidades
 
-escolher um Pokémon para batalhar;
+- Visualização dos Pokémon do treinador
+- Escolha de um Pokémon para a batalha
+- Sorteio aleatório do Pokémon adversário
+- Sistema de batalha por turnos
+- Ataques específicos para cada tipo de Pokémon
+- Efetividade entre tipos
+- Ataques críticos
+- Sistema de dano
+- Alteração de nível após a batalha
+- Recuperação do HP após a batalha
+- Validação da escolha do Pokémon
 
-enfrentar um Pokémon adversário;
+## Pokémon
 
-aplicar vantagens entre os tipos;
+O projeto possui diferentes classes de Pokémon:
 
-visualizar o resultado da batalha.
+- `Pokemon` — classe base
+- `PokemonAgua` — tipo Água
+- `PokemonFogo` — tipo Fogo
+- `PokemonEletricidade` — tipo Eletricidade
+- `PokemonTerra` — tipo Terra
+- `PokemonVento` — tipo Vento
 
-Tudo acontece pelo terminal, através de um menu interativo.
+Cada subclasse possui sua própria implementação do método `atacar()`.
 
-Como funciona
+## Sistema de batalha
 
-Ao iniciar o programa, o jogador entra no menu principal.
+A classe `Batalha` é responsável pelo funcionamento das batalhas.
 
-As opções disponíveis são:
+Durante uma batalha:
 
-Capturar Pokémon
+1. O treinador escolhe um Pokémon.
+2. Um Pokémon adversário é sorteado.
+3. Os Pokémon realizam seus ataques.
+4. O dano é calculado de acordo com o ataque base e a efetividade dos tipos.
+5. Existe a possibilidade de ocorrer um ataque crítico.
+6. A batalha continua até que um dos Pokémon fique sem HP.
+7. O vencedor recebe alteração de nível.
+8. O HP dos Pokémon é restaurado para a próxima batalha.
 
-Ver Pokédex
+## Conceitos de POO utilizados
 
-Batalhar
+- Classes e objetos
+- Encapsulamento
+- Getters e setters
+- Herança
+- Polimorfismo
+- Sobrescrita de métodos (`@Override`)
+- Sobrecarga de métodos
+- `ArrayList`
+- `for-each`
+- `instanceof`
+- Downcasting
+- Construtores
+- `this`
+- Tipos primitivos e `String`
 
-Sair
+## Principais classes
 
-Durante a captura, existe uma chance de o Pokémon ser capturado. O
-programa também verifica se ele já está na Pokédex para evitar que o
-mesmo Pokémon seja adicionado novamente.
+### `Pokemon`
+Classe base dos Pokémon. Possui informações como nome, tipo, nível,
+HP e ataque base.
 
-Na batalha, o jogador escolhe um Pokémon do seu time e enfrenta um
-Pokémon adversário. O dano pode mudar de acordo com a vantagem ou
-desvantagem entre os tipos.
+`PokemonAgua`, `PokemonFogo`, `PokemonEletricidade`,
+`PokemonTerra` e `PokemonVento`
+
+São subclasses de `Pokemon` que especializam o comportamento do método
+`atacar()`.
+
+### `Treinador`
+
+Representa o treinador e armazena seus Pokémon em uma `ArrayList<Pokemon>`.
+
+### `Batalha`
+
+Controla a seleção dos Pokémon, sorteio do adversário, ataques,
+cálculo de dano, efetividade, ataques críticos e resultado da batalha.
+
+### `App`
+
+Classe responsável pela execução do programa e interação inicial com o
+usuário.
+
+## Tecnologias utilizadas
+
+- Java
+- Programação Orientada a Objetos
+- `ArrayList`
+- `Scanner`
+- `Random`
+
+## Como executar
+
+1. Abra o projeto em uma IDE compatível com Java, como o VS Code.
+2. Certifique-se de que o Java está instalado.
+3. Execute a classe `App`.
+4. Siga as opções apresentadas no terminal.
+
+## Uso de Inteligência Artificial
+
+Durante o desenvolvimento do projeto, foram utilizadas ferramentas de
+Inteligência Artificial como apoio ao processo de desenvolvimento.
+
+A IA foi utilizada principalmente para:
+- esclarecer dúvidas sobre conceitos de Java e Programação Orientada a Objetos;
+- auxiliar na compreensão de trechos de código;
+- sugerir soluções para problemas encontrados durante o desenvolvimento;
+- auxiliar na organização e documentação do projeto.
+
+O código foi analisado e compreendido pelos integrantes do grupo, que são
+responsáveis pelas decisões e pelo funcionamento final do projeto.desvantagem entre os tipos.
 
 Também existe a possibilidade de acontecer um ataque crítico,
 deixando a batalha um pouco menos previsível.
